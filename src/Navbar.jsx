@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [themeState, setThemeState] = useState(
@@ -25,13 +25,40 @@ const Navbar = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <span className="font-bold text-xl">Home</span>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold text-xl text-blue-500"
+                    : "font-bold text-xl"
+                }
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <span className="font-bold text-xl">Blogs</span>
+              <NavLink
+                to="/blogs"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold text-xl text-blue-500"
+                    : "font-bold text-xl"
+                }
+              >
+                Blogs
+              </NavLink>
             </li>
             <li>
-              <span className="font-bold text-xl">Bookmarks</span>
+              <NavLink
+                to="/bookmarks"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-bold text-xl text-blue-500"
+                    : "font-bold text-xl"
+                }
+              >
+                Bookmarks
+              </NavLink>
             </li>
           </ul>
           <div>
