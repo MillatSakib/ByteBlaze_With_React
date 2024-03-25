@@ -6,6 +6,7 @@ import "./index.css";
 import MainLayout from "./MainLayout.jsx";
 import Hero from "./Hero.jsx";
 import Blogs from "./Blogs.jsx";
+import FullPost from "./FullPost.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/blogs",
+        loader: () => fetch("https://dev.to/api/articles/latest"),
         element: <Blogs></Blogs>,
       },
       {
@@ -22,6 +24,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Hero></Hero>,
+      },
+      {
+        path: "/blogs/:postId",
+        loader: ({ params }) =>
+          fetch(`https://dev.to/api/articles/${params.postId}`),
+        element: <FullPost></FullPost>,
       },
     ],
   },
