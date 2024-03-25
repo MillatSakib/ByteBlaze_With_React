@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 import MainLayout from "./MainLayout.jsx";
 import Hero from "./Hero.jsx";
+import Blogs from "./Blogs.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/blogs",
-        element: <div>Hello. This is blog section</div>,
+        element: <Blogs></Blogs>,
       },
       {
         path: "/bookmarks",
