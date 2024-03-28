@@ -18,7 +18,7 @@ const Blog = ({ singleArticle }) => {
             {singleArticle.title}
           </h3>
           <span className="text-xs dark:text-gray-600">
-            {new Date(singleArticle.published_timestamp).toLocaleTimeString()}
+            {new Date(singleArticle.published_timestamp).toLocaleDateString()}
           </span>
           <p>{singleArticle.description}</p>
         </div>

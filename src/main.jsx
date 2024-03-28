@@ -7,6 +7,8 @@ import MainLayout from "./MainLayout.jsx";
 import Hero from "./Hero.jsx";
 import Blogs from "./Blogs.jsx";
 import FullPost from "./FullPost.jsx";
+import Content from "./Content.jsx";
+import Author from "./Author.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +32,20 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://dev.to/api/articles/${params.postId}`),
         element: <FullPost></FullPost>,
+        children: [
+          {
+            path: "/blogs/:postId",
+            loader: ({ params }) =>
+              fetch(`https://dev.to/api/articles/${params.postId}`),
+            element: <Content></Content>,
+          },
+          {
+            path: "/blogs/:postId/author",
+            loader: ({ params }) =>
+              fetch(`https://dev.to/api/articles/${params.postId}`),
+            element: <Author></Author>,
+          },
+        ],
       },
     ],
   },
